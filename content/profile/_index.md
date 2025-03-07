@@ -15,6 +15,8 @@ I have about a decade of experience with support, operations, architecture, and 
   - Artificially expanding my commit history and codebase is on the roadmap
 <!-- - You can download my resume [here](). -->
 
+---
+
 ## Professional philosophy
 
 My experience in Big Tech, Little Tech, and parenting has led me to the following tenets of IT leadership:
@@ -27,25 +29,25 @@ My experience in Big Tech, Little Tech, and parenting has led me to the followin
 ### Get off the pot
 - If you're spending more time planning a project than you would waste by not doing that planning, stop planning and go make some mistakes.
 
-### Professional Sabbath
+### Professional sabbath
 - Giving an engineer one Friday a month off to focus on recreation and self-actualization pays for itself and then some.
 
 ### Calendar conflicts mean things
 - Don't invite people to meetings "optionally, for awareness"; if they are optional, they can get sufficient awareness from an after-meeting summary (or nothing at all).
 - If you can't find a time that works for everyone, you might be inviting too many people.
 
-### Utilitarian Project Management
+### Utilitarian project management
 - Analysis paralysis happens. While you're busy deciding what to do next, deliver a feature to kill time.
 - Something that reduces customer pain is better than nothing; Busy work is worse than nothing.
 
-### Zoom Call Multitasking
+### Zoom call multitasking
 - If you're able to get away with not paying attention, you probably don't need to be there. Just decline the invite and keep working.
 
-### Bus Factor Awareness
+### Bus factor awareness
 - If you feel like you can't take a vacation or sick day because "the team needs you", you're generating a business risk.
   - Delegate more work, transfer more knowledge, or decline more requests.
 
-### Resume Driven Development
+### Resume driven development
 - Engineers are going to implement solutions in search of problems out of ambition and curiosity anyway; it can be more effective to just assign tickets for pet projects that may go nowhere rather than bloating your code base when someone hunting a promotion turns your kubectl manifest into the next Uber.
 
 ### When everything is a P0, nothing is
