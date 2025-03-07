@@ -1,2 +1,0 @@
-# csanford-cloud
-Website source
