@@ -79,7 +79,7 @@ params:
   showtoc: true                  # Show table of contents
   tocopen: false                 # Keep ToC closed by default
   showBreadCrumbs: true
-  showShareButtons: true
+  showShareButtons: false
   showRssButtonInSectionTermList: true
   showFullTextinRSS: false       # RSS feeds show summaries
   disableSpecial1stPost: false   # Special styling for first post
@@ -93,11 +93,25 @@ params:
   displayFullLangName: false     # Show full language name in language switcher
   env: "production"              # Set environment for production
 
-  homeInfoParams:
+  # homeInfoParams:
+  #   title: "Don't hate, automate"
+  #   content: "Blog, portfolio, and all-around sandbox for Christopher Sanford."
+  
+  profileMode:
+    enabled: true
     title: "Don't hate, automate"
     content: "Blog, portfolio, and all-around sandbox for Christopher Sanford."
-
-  # ───── Social Media Icons (Optional) ─────
+    imageUrl: "/images/headshot.jpg"
+    imageTitle: "hi"
+    imageWidth: 120
+    imageHeight: 120
+    buttons:
+      - name: "Blog"
+        url: "/posts/"
+      - name: "Projects"
+        url: "/projects/"
+      - name: "Profile"
+        url: "/profile/"
   socialIcons:
     - name: "github"
       url: "https://github.com/cisanford"
@@ -143,11 +157,11 @@ menu:
   main:
     - identifier: "about"
       name: "About"
-      url: "/about/"
+      url: "/profile/"
       weight: 1
     - identifier: "blog"
       name: "Blog"
-      url: "/blog/"
+      url: "/posts/"
       weight: 2
     - identifier: "projects"
       name: "Projects"
