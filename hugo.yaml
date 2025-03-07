@@ -1,17 +1,17 @@
 # ───────────────────────────────────────────────────────────
 # 🌐 General Hugo Configuration
 # ───────────────────────────────────────────────────────────
-baseURL: "https://csanford.cloud"
-languageCode: "en-us"
-title: "Chris Sanford | Purveyor of fine cloud engineering and other curiosities"
-theme: "PaperMod"
+baseURL: https://csanford.cloud
+languageCode: en-us
+title: Chris Sanford | Purveyor of fine cloud engineering and other curiosities
+theme: PaperMod
 pagination:
   pagerSize: 10
 enableRobotsTXT: true
 enableEmoji: true
 summaryLength: 70
-defaultContentLanguage: "en"
-timeout: "60s"
+defaultContentLanguage: en
+timeout: 60s
 enableGitInfo: true
 
 # ───────────────────────────────────────────────────────────
@@ -58,7 +58,7 @@ markup:
     renderer:
       unsafe: true               # Allow raw HTML in markdown (consider security implications)
   highlight:
-    style: "dracula"             # Code syntax highlighting style
+    style: dracula             # Code syntax highlighting style
     guessSyntax: true            # Let Hugo guess language if not specified
     lineNumbersInTable: true     # Display line numbers in table layout
   tableOfContents:
@@ -70,8 +70,8 @@ markup:
 # 🏗️ PaperMod-Specific Parameters
 # ───────────────────────────────────────────────────────────
 params:
-  defaultTheme: "auto"           # Options: "light", "dark", "auto"
-  disableThemeToggle: false      # Show/hide theme toggle button
+  defaultTheme: dark           # Options: light, dark, auto
+  disableThemeToggle: true      # Show/hide theme toggle button
   showReadingTime: true
   showWordCount: false
   showPostNavLinks: true
@@ -89,36 +89,36 @@ params:
   hideSummary: false             # Show summary on list pages
   comments: false                # Enable comments if desired
   hideFooter: false              # Show footer text
-  canonicalLinkText: "Originally published at"
+  canonicalLinkText: Originally published at
   displayFullLangName: false     # Show full language name in language switcher
-  env: "production"              # Set environment for production
+  env: production              # Set environment for production
 
   # homeInfoParams:
-  #   title: "Don't hate, automate"
-  #   content: "Blog, portfolio, and all-around sandbox for Christopher Sanford."
+  #   title: Don't hate, automate
+  #   content: Blog, portfolio, and all-around sandbox for Christopher Sanford.
   
   profileMode:
     enabled: true
-    title: "Don't hate, automate"
-    content: "Blog, portfolio, and all-around sandbox for Christopher Sanford."
-    imageUrl: "/images/headshot.jpg"
-    imageTitle: "hi"
+    title: Don't hate, automate
+    content: Blog, portfolio, and all-around sandbox for Christopher Sanford.
+    imageUrl: /images/headshot.jpg
+    imageTitle: hi
     imageWidth: 120
     imageHeight: 120
     buttons:
-      - name: "Blog"
-        url: "/posts/"
-      - name: "Projects"
-        url: "/projects/"
-      - name: "Profile"
-        url: "/profile/"
+      - name: Profile
+        url: /about/
+      - name: Blog
+        url: /posts/
+      # - name: Projects
+      #   url: /projects/
   socialIcons:
-    - name: "github"
-      url: "https://github.com/cisanford"
-    - name: "bluesky"
-      url: "https://bsky.app/profile/cisanford.bsky.social"
-    - name: "linkedin"
-      url: "https://www.linkedin.com/in/csanford31/"
+    - name: github
+      url: https://github.com/cisanford
+    - name: bluesky
+      url: https://bsky.app/profile/cisanford.bsky.social
+    - name: linkedin
+      url: https://www.linkedin.com/in/csanford31/
 
   # ───── Cover Image Settings (Optional) ─────
   cover:
@@ -130,10 +130,10 @@ params:
 
   # ───── Schema & SEO Settings (Optional) ─────
   schema:
-    publisherType: "Organization"
+    publisherType: Organization
     sameAs:
-      - "https://github.com/yourusername"
-      - "https://www.linkedin.com/in/csanford31/"
+      - https://github.com/yourusername
+      - https://www.linkedin.com/in/csanford31/
 
   # ───── Fuse Search Options (Optional) ─────
   fuseOpts:
@@ -145,68 +145,64 @@ params:
     minMatchCharLength: 0
     limit: 10
     keys:
-      - "title"
-      - "permalink"
-      - "summary"
-      - "content"
+      - title
+      - permalink
+      - summary
+      - content
 
 # ───────────────────────────────────────────────────────────
 # 🗂️ Menu Configuration
 # ───────────────────────────────────────────────────────────
 menu:
   main:
-    - identifier: "about"
-      name: "About"
-      url: "/profile/"
+    - identifier: about
+      name: About
+      url: /profile/
       weight: 1
-    - identifier: "blog"
-      name: "Blog"
-      url: "/posts/"
+    - identifier: blog
+      name: Blog
+      url: /posts/
       weight: 2
-    - identifier: "projects"
-      name: "Projects"
-      url: "/projects/"
-      weight: 3
-    - identifier: "contact"
-      name: "Contact"
-      url: "/contact/"
-      weight: 4
+    # - identifier: projects
+    #   name: Projects
+    #   url: /projects/
+    #   weight: 3
 
 # ───────────────────────────────────────────────────────────
 # Deployment Configuration (Optional)
 # ───────────────────────────────────────────────────────────
 deployment:
   targets:
-    - name: "GitHub Pages"
-      URL: "git@github.com:cisanford/csanford-cloud.git"
-      branch: "main"
+    - name: GitHub Pages
+      URL: git@github.com:cisanford/csanford-cloud.git
+      branch: main
 
 # ───────────────────────────────────────────────────────────
 # Sitemap & SEO Configuration (Optional)
 # ───────────────────────────────────────────────────────────
 sitemap:
-  changefreq: "weekly"
-  filename: "sitemap.xml"
+  changefreq: weekly
+  filename: sitemap.xml
   priority: 0.5
 
 permalinks:
-  blog: "/blog/:slug/"
+  blog: /blog/:slug/
 
 # ───────────────────────────────────────────────────────────
 # Front Matter Defaults (Optional)
 # ───────────────────────────────────────────────────────────
 frontmatter:
   date:
-    - "date"
-    - "publishDate"
-    - "lastmod"
+    - date
+    - publishDate
+    - lastmod
   lastmod:
-    - "lastmod"
-    - ":git"
-    - "date"
-    - "publishDate"
+    - lastmod
+    - :git
+    - date
+    - publishDate
   publishDate:
-    - "publishDate"
-    - "date"
+    - publishDate
+    - date
   expiryDate:
-    - "expiryDate"
+    - expiryDate
