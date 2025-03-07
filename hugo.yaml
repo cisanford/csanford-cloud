@@ -88,7 +88,7 @@ params:
   hideMeta: false                # Display meta (date, read time, author)
   hideSummary: false             # Show summary on list pages
   comments: false                # Enable comments if desired
-  hideFooter: false              # Show footer text
+  hideFooter: true              # Show footer text
   canonicalLinkText: Originally published at
   displayFullLangName: false     # Show full language name in language switcher
   env: production              # Set environment for production
@@ -107,7 +107,7 @@ params:
     imageHeight: 120
     buttons:
       - name: Profile
-        url: /about/
+        url: /profile/
       - name: Blog
         url: /posts/
       # - name: Projects
