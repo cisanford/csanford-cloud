@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        {{/*  Refer to the head.html module in partials/ to fill this out  */}}
+        {{- partial "head.html" . }}
+    </head>
+    <body class="
+    {{ if (or (ne .Kind `page` ) (eq .Layout `archives`) (eq .Layout `search`)) }}
+    list
+    {{ end }}
+    dark
+    {{ if eq .Type "profile" }}
+    page-profile
+    {{ else if eq .Type "post" }}
+    single-post
+    {{ end }}
+" id="top">
+        {{- partialCached "header.html" . .Page -}}
+        <main class="main">
+            {{- block "main" . }}{{ end }}
+        </main>
+        {{ partialCached "footer.html" . .Layout .Kind (.Param "hideFooter") (.Param "ShowCodeCopyButtons") -}}
+    </body>
+</html>
+{{/*  html:
+  head: $head.html  # Include "head.html" partial
+  body:
+    id: "top"
+    class:
+      - IF .Kind != "page" OR .Layout == "archives" OR .Layout == "search", THEN "list", ELSE null
+      - "dark"  # Hardcoded dark mode
+      - IF .Type == "profile", THEN "page-profile"
+        ELIF .Type == "post", THEN "single-post"
+        ELSE null
+  $header.html  # Cached header
+  main: $main  # Replaced by block content from child templates
+  $footer.html  # Cached footer  */}}
