@@ -3,7 +3,7 @@
 # ───────────────────────────────────────────────────────────
 baseURL: https://csanford.cloud
 languageCode: en-us
-title: Chris Sanford | Purveyor of fine cloud engineering and other curiosities
+title: Chris Builds Imaginary Computers
 theme: PaperMod
 pagination:
   pagerSize: 10
@@ -119,6 +119,8 @@ params:
       url: https://bsky.app/profile/cisanford.bsky.social
     - name: linkedin
       url: https://www.linkedin.com/in/csanford31/
+    - name: rss
+      url: /index.xml
 
   # ───── Cover Image Settings (Optional) ─────
   cover:
