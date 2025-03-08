@@ -4,7 +4,11 @@ I believe that organizations thrive when we all acknowledge two fundamental trut
 - Computers always and exclusively do what they are told
 - People are not computers
 
+> *Any exception to the above indicates the subject is malfunctioning.*
+
 I have experience helping optimize around both of those concepts.
+
+---
 
 ## Professional Background
 
@@ -17,7 +21,7 @@ I have about a decade of experience with support, operations, architecture, and 
 
 ---
 
-## Professional philosophy
+## Professional Philosophy
 
 My experience in Big Tech, Little Tech, and parenting has led me to the following tenets of IT leadership:
 

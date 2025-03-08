@@ -74,6 +74,7 @@ params:
   disableThemeToggle: true      # Show/hide theme toggle button
   showReadingTime: true
   showWordCount: false
+  hideAuthor: true
   showPostNavLinks: true
   showCodeCopyButtons: true
   showtoc: true                  # Show table of contents
@@ -86,6 +87,7 @@ params:
   disableScrollToTop: false      # Show Scroll-to-Top button
   disableAnchoredHeadings: false # Enable anchored headings
   hideMeta: false                # Display meta (date, read time, author)
+
   hideSummary: false             # Show summary on list pages
   comments: false                # Enable comments if desired
   hideFooter: true              # Show footer text

@@ -1,9 +1,9 @@
-body {
+/* body {
   margin: 0;
   overflow: hidden;
   background: url('images/seattle.png') no-repeat center center fixed;
   background-size: cover;
-}
+} */
   
 #rainCanvas {
   position: fixed;
