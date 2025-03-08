@@ -1,4 +1,16 @@
+---
+type: "page"
+outputs: ["HTML"]
+description: "Solving problems that involve people using computers."
+aliases:
+  - /about
+  - /me
+showToc: false
+---
+
 # Solving problems that involve people using computers
+
+![it's good weather for ducks](/images/seattle.png)
 
 I believe that organizations thrive when we all acknowledge two fundamental truths about software engineering:
 - Computers always and exclusively do what they are told
