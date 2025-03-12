@@ -2,8 +2,6 @@ baseURL: https://csanford.cloud
 theme: blowfish
 
 defaultContentLanguage: en
-#languageCode: en-us
-# title: Chris Builds Imaginary Computers
 
 module:
   hugoVersion:

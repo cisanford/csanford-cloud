@@ -1,11 +1,11 @@
 ---
-type: "page"
 outputs: ["HTML"]
 description: "Solving problems that involve people using computers."
 aliases:
   - /about
   - /me
 showToc: false
+layout: simple
 ---
 
 # Solving problems that involve people using computers
@@ -77,3 +77,8 @@ My experience in Big Tech, Little Tech, and parenting has led me to the followin
 
 ### When everything is a P0, nothing is
 - We all feel personally attacked at this one
+
+## Attribution
+
+- This website is powered by [Blowfish](https://blowfish.page/) for Hugo.
+- The repository is public on my GitHub - you're welcome to reuse any code you want within the csanford-cloud without restriction but it's nice to give them credit if you do.
