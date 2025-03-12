@@ -1,3 +1,3 @@
 # Amazing Content
 
-[🔗 Subscribe via RSS](/index.xml)
+[🔗 Subscribe via RSS](/posts/index.xml)
