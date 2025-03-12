@@ -1,22 +1,26 @@
-# ───────────────────────────────────────────────────────────
-# 🌐 General Hugo Configuration
-# ───────────────────────────────────────────────────────────
 baseURL: https://csanford.cloud
-languageCode: en-us
-title: Chris Builds Imaginary Computers
-theme: PaperMod
-pagination:
-  pagerSize: 10
-enableRobotsTXT: true
-enableEmoji: true
-summaryLength: 70
+theme: blowfish
+
 defaultContentLanguage: en
+#languageCode: en-us
+# title: Chris Builds Imaginary Computers
+
+module:
+  hugoVersion:
+    extended: true
+    min: 0.141.0
+
 timeout: 60s
 enableGitInfo: true
 
-# ───────────────────────────────────────────────────────────
-# 🚀 Performance & Optimization (Optional)
-# ───────────────────────────────────────────────────────────
+enableRobotsTXT: true
+summaryLength: 50
+
+buildDrafts: false
+buildFuture: false
+
+enableEmoji: true
+
 minify:
   disableXML: false
   disableCSS: false
@@ -24,14 +28,30 @@ minify:
   disableJS: false
   disableSVG: false
 
-# ───────────────────────────────────────────────────────────
-# 📤 Outputs Configuration (Optional)
-# ───────────────────────────────────────────────────────────
+security:
+  enableInlineShortcodes: false
+
+pagination:
+  pagerSize: 100
+
+imaging:
+  anchor: Center
+
+taxonomies:
+  tag: tags
+  category: categories
+  author: authors
+  series: series
+
+sitemap:
+  changefreq: daily
+  filename: sitemap.xml
+  priority: 0.5
+
 outputs:
   home:
     - HTML
-    - RSS
-    - JSON         # JSON useful for search integration
+    - JSON
   page:
     - HTML
   section:
@@ -44,169 +64,243 @@ outputs:
     - HTML
     - RSS
 
-# ───────────────────────────────────────────────────────────
-# 🔒 Security Settings (Optional)
-# ───────────────────────────────────────────────────────────
-security:
-  enableInlineShortcodes: false   # Recommended for security
+related:
+  threshold: 0
+  toLower: false
+  indices:
+    - name: tags
+      weight: 100
+    - name: categories
+      weight: 100
+    - name: series
+      weight: 50
+    - name: authors
+      weight: 50
+    - name: date
+      weight: 10
+    - name: fragmentrefs
+      type: fragments
+      weight: 10
+      applyFilter: false
 
-# ───────────────────────────────────────────────────────────
-# 📜 Markup Settings
-# ───────────────────────────────────────────────────────────
+languages:
+  en:
+    disabled: false
+    languageCode: en
+    languageName: English
+    weight: 1
+    title: Chris Builds Imaginary Computers
+    params:
+      displayName: EN
+      isoCode: en
+      rtl: false
+      dateFormat: 2 January 2006
+      # logo: "LOGO . PNG"
+      # secondaryLogo: "ANOTHER LOGO . PNG"
+      description: <DESCRIPTION>
+      author:
+        name: Chris Sanford
+        image: images/headshot.jpg
+        headline: Purveyor of fine cloud automation and other curiosities
+        bio: Have you tried updating Adobe Reader?
+    author:
+      links: []
+
+###
+# Blowfish config
+###
+
+params:
+  autoSwitchAppearance: false
+  colorScheme: forest
+  defaultAppearance: dark
+  defaultBackgroundImage: images/seattle.png
+  # defaultFeaturedImage: doggo.jpg
+  disableImageOptimization: false
+  disableTextInHeader: false
+  enableCodeCopy: true
+  enableSearch: true
+  forgejoDefaultServer: https://v8.next.forgejo.org
+  giteaDefaultServer: https://git.fsfe.org
+  highlightCurrentMenuArea: true
+  smartTOC: true
+  smartTOCHideUnfocusedChildren: true
+  replyByEmail: false
+
+  article:
+    editAppendPath: true
+    heroStyle: basic
+    invertPagination: false
+    layoutBackgroundBlur: true
+    layoutBackgroundHeaderSpace: true
+    seriesOpened: false
+    showAuthor: false
+    showAuthorsBadges: false
+    showBreadcrumbs: true
+    showDate: true
+    showDateOnlyInArticle: false
+    showDateUpdated: true
+    showDraftLabel: true
+    showEdit: false
+    showHeadingAnchors: true
+    showHero: false
+    showLikes: false
+    showPagination: true
+    showReadingTime: true
+    showRelatedContent: false
+    showTableOfContents: false
+    showTaxonomies: true
+    showViews: false
+    showWordCount: false
+    # showZenMode: true
+
+  footer:
+    showAppearanceSwitcher: true
+    showCopyright: true
+    showMenu: true
+    showScrollToTop: true
+    showThemeAttribution: false
+
+  header:
+    layout:  basic
+
+  homepage:
+    cardView: false
+    cardViewScreenWidth: false
+    homepageImage: images/seattle.png
+    layout: background
+    layoutBackgroundBlur: false
+    showMoreLink: false
+    showMoreLinkDest: /posts/
+    showRecent: false
+    showRecentItems: 5
+
+  list:
+    cardView: false
+    cardViewScreenWidth: false
+    constrainItemsWidth: true
+    groupByYear: true
+    layoutBackgroundBlur: true
+    layoutBackgroundHeaderSpace: true
+    orderByWeight: false
+    showBreadcrumbs: true
+    # showCards: true
+    # showHero: true
+    showLikes: false
+    showSummary: true
+    showTableOfContents: false
+    showViews: false
+
+  sitemap:
+    excludedKinds:
+      - taxonomy
+      - term
+
+  taxonomy:
+    cardView: false
+    showBreadcrumbs: false
+    showHero: false
+    showLikes: false
+    showTableOfContents: false
+    showTermCount: true
+    showViews: false
+
+  term:
+    cardView: false
+    cardViewScreenWidth: false
+    groupByYear: false
+    showBreadcrumbs: false
+    showHero: false
+    showLikes: false
+    showTableOfContents: true
+    showViews: false
+
+  # buymeacoffee:
+  # fathomAnalytics:
+  # firebase:
+  # rssnext:
+  # selineAnalytics:
+  # umamiAnalytics:
+  # verification:
+
+###
+# Markup Settings
+###
+
 markup:
   goldmark:
     renderer:
-      unsafe: true               # Allow raw HTML in markdown (consider security implications)
+      unsafe: true
+
   highlight:
-    style: dracula             # Code syntax highlighting style
-    guessSyntax: true            # Let Hugo guess language if not specified
-    lineNumbersInTable: true     # Display line numbers in table layout
+    noClasses: false
+    style: dracula
+    guessSyntax: true
+    lineNumbersInTable: true
+
   tableOfContents:
     startLevel: 2
     endLevel: 3
     ordered: false
 
-# ───────────────────────────────────────────────────────────
-# 🏗️ PaperMod-Specific Parameters
-# ───────────────────────────────────────────────────────────
-params:
-  defaultTheme: dark           # Options: light, dark, auto
-  disableThemeToggle: true      # Show/hide theme toggle button
-  showReadingTime: true
-  showWordCount: false
-  hideAuthor: true
-  showPostNavLinks: true
-  showCodeCopyButtons: true
-  showtoc: true                  # Show table of contents
-  tocopen: false                 # Keep ToC closed by default
-  showBreadCrumbs: true
-  showShareButtons: false
-  showRssButtonInSectionTermList: true
-  showFullTextinRSS: false       # RSS feeds show summaries
-  disableSpecial1stPost: false   # Special styling for first post
-  disableScrollToTop: false      # Show Scroll-to-Top button
-  disableAnchoredHeadings: false # Enable anchored headings
-  hideMeta: false                # Display meta (date, read time, author)
+###
+# Menus
+###
 
-  hideSummary: false             # Show summary on list pages
-  comments: false                # Enable comments if desired
-  hideFooter: true              # Show footer text
-  canonicalLinkText: Originally published at
-  displayFullLangName: false     # Show full language name in language switcher
-  env: production              # Set environment for production
-
-  # homeInfoParams:
-  #   title: Don't hate, automate
-  #   content: Blog, portfolio, and all-around sandbox for Christopher Sanford.
-  
-  profileMode:
-    enabled: true
-    title: Don't hate, automate
-    content: Blog, portfolio, and all-around sandbox for Christopher Sanford.
-    imageUrl: /images/headshot.jpg
-    imageTitle: hi
-    imageWidth: 120
-    imageHeight: 120
-    buttons:
-      - name: Profile
-        url: /profile/
-      - name: Blog
-        url: /posts/
-      # - name: Projects
-      #   url: /projects/
-  socialIcons:
-    - name: github
-      url: https://github.com/cisanford
-    - name: bluesky
-      url: https://bsky.app/profile/cisanford.bsky.social
-    - name: linkedin
-      url: https://www.linkedin.com/in/csanford31/
-    - name: rss
-      url: /index.xml
-
-  # ───── Cover Image Settings (Optional) ─────
-  cover:
-    linkFullImages: true         # Open full-size images on click
-    responsiveImages: true       # Enable responsive cover images
-    hidden: false                # Show cover images
-    hiddenInList: false          # Show on list pages
-    hiddenInSingle: false        # Show on single pages
-
-  # ───── Schema & SEO Settings (Optional) ─────
-  schema:
-    publisherType: Organization
-    sameAs:
-      - https://github.com/yourusername
-      - https://www.linkedin.com/in/csanford31/
-
-  # ───── Fuse Search Options (Optional) ─────
-  fuseOpts:
-    isCaseSensitive: false
-    shouldSort: true
-    location: 0
-    distance: 1000
-    threshold: 0.4
-    minMatchCharLength: 0
-    limit: 10
-    keys:
-      - title
-      - permalink
-      - summary
-      - content
-
-# ───────────────────────────────────────────────────────────
-# 🗂️ Menu Configuration
-# ───────────────────────────────────────────────────────────
 menu:
   main:
     - identifier: about
+      #pre: icon name (e.g. 'amazon')
+      pageRef:  /profile/
       name: About
-      url: /profile/
       weight: 1
     - identifier: blog
       name: Blog
-      url: /posts/
+      pageRef: /posts/
       weight: 2
     # - identifier: projects
     #   name: Projects
     #   url: /projects/
     #   weight: 3
+  footer:
+    - name: Footer1
+      url: https://google.com
+      identifier: FooterExternal
+      weight: 9999
+    - name: Footer2
+      pageRef: /profile/
+      identifier: FooterInternal
+      weight: 9999
 
-# ───────────────────────────────────────────────────────────
-# Deployment Configuration (Optional)
-# ───────────────────────────────────────────────────────────
+###
+# Github Pages
+###
+
 deployment:
   targets:
     - name: GitHub Pages
       URL: git@github.com:cisanford/csanford-cloud.git
       branch: main
 
-# ───────────────────────────────────────────────────────────
-# Sitemap & SEO Configuration (Optional)
-# ───────────────────────────────────────────────────────────
-sitemap:
-  changefreq: weekly
-  filename: sitemap.xml
-  priority: 0.5
+###
+# Font matter config
+###
 
-permalinks:
-  blog: /blog/:slug/
-
-# ───────────────────────────────────────────────────────────
-# Front Matter Defaults (Optional)
-# ───────────────────────────────────────────────────────────
 frontmatter:
   date:
     - date
     - publishDate
     - lastmod
+
   lastmod:
     - lastmod
     - :git
     - date
     - publishDate
+
   publishDate:
     - publishDate
     - date
   expiryDate:
+
     - expiryDate
