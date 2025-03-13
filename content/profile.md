@@ -1,23 +1,48 @@
+---
+outputs: ["HTML"]
+description: "Solving problems that involve people using computers."
+aliases:
+  - /about
+  - /me
+showToc: false
+layout: simple
+---
+
 # Solving problems that involve people using computers
+
+![it's good weather for ducks](/images/seattle.png)
 
 I believe that organizations thrive when we all acknowledge two fundamental truths about software engineering:
 - Computers always and exclusively do what they are told
 - People are not computers
 
+{{< alert "xmark" >}}
+*Exceptions to the above usually indicate the subject is malfunctioning.*
+{{< /alert >}}
+
 I have experience helping optimize around both of those concepts.
+
+---
 
 ## Professional Background
 
 I have about a decade of experience with support, operations, architecture, and engineering in AWS.
+
+### Links
 - My LinkedIn is [here](https://www.linkedin.com/in/csanford31). Send me a message!
 - If you're into certifications, my Credly wallet is [here](https://www.credly.com/users/christopher-sanford.d404c872).
 - My Github profile is [here](https://github.com/cisanford), if you really want, but be advised that due to work-life balance virtually all my code contributions happen on company-owned organizations.
   - Artificially expanding my commit history and codebase is on the roadmap
 <!-- - You can download my resume [here](). -->
 
+<!-- ### Stuff I'm really good at people usually want
+- Terraform
+  - I can go into a lot of depth on this, (And we should chat about it! At length!) but if you're a recruiter this is as much detail as you need -->
+
+
 ---
 
-## Professional philosophy
+## Professional Philosophy
 
 My experience in Big Tech, Little Tech, and parenting has led me to the following tenets of IT leadership:
 
@@ -52,3 +77,8 @@ My experience in Big Tech, Little Tech, and parenting has led me to the followin
 
 ### When everything is a P0, nothing is
 - We all feel personally attacked at this one
+
+## Attribution
+
+- This website is powered by [Blowfish](https://blowfish.page/) for Hugo.
+- The repository is public on my GitHub - you're welcome to reuse any code you want within the csanford-cloud without restriction but it's nice to give them credit if you do.
