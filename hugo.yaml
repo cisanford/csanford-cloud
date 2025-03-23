@@ -180,7 +180,7 @@ params:
     cardView: false
     cardViewScreenWidth: false
     constrainItemsWidth: true
-    groupByYear: true
+    groupByYear: false
     layoutBackgroundBlur: true
     layoutBackgroundHeaderSpace: true
     orderByWeight: true

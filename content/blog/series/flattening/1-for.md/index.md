@@ -1,6 +1,6 @@
 ---
-date: '2025-03-15'
-draft: true
+date: '2025-03-23'
+draft: false
 series: ["HCL Nested Fors"]
 series_order: 1
 slug: nested-for
@@ -12,80 +12,95 @@ weight: 1
 
 ## Prerequisites
 
-- A `tuple` is an indexed array, similar to a list or a set `[which, are, comma, delimited, and, enclosed, in, square, brackets]`. However, while lists and sets always contain the same data type, a tuple contains an arbitrary collection of items. Terraform assumes a collection is a tuple if it isn't totally certain the type will be consistent. Since HCL prefers weak typing, it is appropriate in conversation (if not technical writing) to use `list` and `tuple` interchangeably. (You can also be pedantic about it to avoid being invited to more happy hours.)
+- A **tuple** is an indexed array, similar to a list or a set: `[comma, delimited, and, enclosed, in, square, brackets]`.
+Unlike lists or sets, which must contain consistent data types, tuples can hold different data types simultaneously.
+  - Terraform treats a collection as a tuple when it can't confidently assume type consistency, which is why you might often see references to "type tuple" in error messages even though you didn't make one on purpose.
+  - Since Terraform's typing is very weak indeed, it's perfectly fine in conversation (if not technical writing) to use `list` and `tuple` interchangeably.
 
-- An `object` is like a two-dimensional `tuple` (contrary to a `map`, which needs to use consistent types such as a `map(string)`). Objects are `{collections of key-value pairs = enclosed in curly braces}`, where the keys are almost always strings and the values can be any valid variable value.
-  - Unlike a `map`, where key/value pairs are usually always `string`s, an `object` can have values of any type - including other objects, or lists of other objects, or lists of lists of other objects.
+- An **object** resembles a two-dimensional tuple (in contrast to a **map**, which must consistently use a single data type, e.g., `map(string)`). Objects use `{key-value pairs}` syntax, where keys are typically strings, and values can be any valid Terraform type.
+  - Keys for `object` items are still strings (i.e. attribute names), but **values** can be any type, including other objects or even deeply nested lists.
 
-Almost any value enclosed in `[square brackets]` is a one-dimensional collection (e.g. `tuple`), and almost any value enclosed in `{curly braces}` is a two-dimensional collection (e.g. `object`).
-We need to keep this in mind when we look at `for`, because the Terraform `for` keyword lives `[inside a collection]`, not `outside(an expression)`.
+In Terraform:
 
-> *The true, sinister nature of sub-objects becomes more evident when reviewing the plan or state of a module-heavy configuration, where you might find such identifiers as `module.vpc[0].module.default_security_group[0].aws_vpc_security_group_egress_rule.egress_rule[0].id`.*
+- Values enclosed in `[square brackets]` are typically one-dimensional collections (tuples).
+- Values enclosed in `{curly braces}` are typically two-dimensional collections (objects).
 
-## Part 1: What `for` does
+We want to keep this distinction in mind when working with the `for` keyword, as it appears **within** a collection rather than as a standalone expression.
 
-Terraform uses the term 'for' in a handful of contexts. *This* usage is not to be confused with `for_each`, which is a meta-argument that iteratively defines multiple resources, data sources, and other constructs in state.
+> *The sinister nature of sub-objects becomes apparent when reviewing the state of module-heavy configurations, where resource identifiers get very long - e.g. `module.vpc[0].module.default_security_group[0].aws_vpc_security_group_egress_rule.egress_rule[0].id`.*
 
-In a normal coding situation, `for` would define a loop which performs a task multiple times by iterating down a collection of similar arguments.
-However, since HCL is incapable of performing any tasks except for variable manipulation, a  Terraform for can be thought of more like a 'directive' in string interpolation.
+## Part 1: Understanding `for`
 
-As I mentioned a moment ago, `for` operators are always used **within** a collection block, and they are part of the content of that collection. A `[for statement in square braces]` is a one-dimensional collection and a `{for statement in curly braces}` is a two-dimensional collection. Such statements are usually used if you need to bulk transform a collection of zero to many variables. 
+Terraform uses the keyword `for` in multiple contexts.
+Its most popular usage is the `for_each` meta-argument, which you might know as an alternative to `count` or as part of a `dynamic` block.
+This usage, where we transform collections using `for`, should not be confused with `for_each`; despite their similar name, they are *very* distant relatives.
 
-For statements are structured as follows:
+In conventional programming, `for` defines loops that iteratively perform tasks.
+HCL doesn't really perform tasks, though. In Terraform, `for` is more analogous to a [template directive](https://developer.hashicorp.com/terraform/language/expressions/strings#directives) or some other Herculean expansion of string interpolation.
+
+In Terraform, `for` appears within collections. A `[for statement in square braces]` is a one-dimensional collection and a `{for statement in curly braces}` is a two-dimensional collection:
+
 ```text
 [ for iterator in collection : output ]
-# Iterator: arbitrary name to reference current item in collection
-# Collection: Any complex object, but usually a one-dimensional one in this case
-# Output: The command to transform the item
+# iterator: reference to the current item, pick any name you want
+# collection: typically a tuple or list, but two-dimensional complex objects are allowed
+# output: logic to perform on the item
 
-{ for i, j in collection : output-key => output-value }
-# If 'collection' is two-dimensional, assign two iterators for key and value.
-# If 'collection' is one-dimensional, the 'key' here is the index of the ordered list.
-# The => operator is used specifically in a dynamic key-value setup like this.
-### The key must be locally unique unless it's a grouping operation, which we'll talk about in a different post.
+{ for key, value in collection : output-key => output-value }
+# key, value: references for each item in two-dimensional collections
+# output-key => output-value: transformation creating key-value pairs
+## The => operator is always used to split dynamic keys and values in "curly-brace fors"
 ```
 
-For example, if I have `var.companies = ['facebook', 'apple', 'pied piper']`, I could use this statement to brainstorm new tech startups:
+We usually use for statements to uniformly transform a collection of zero to many variables.
+For instance, given:
+
+```hcl
+var.companies = ["facebook", "apple", "pied piper"]
+```
+
+you can transform it as:
 
 ```hcl
 [ for company in var.companies : "New ${title(company)}" ]
 ```
 
-<!-- trunk-ignore(markdownlint/MD038) -->
-This would output `["New Facebook", "New Apple", "New Pied Piper"]`. The `for` statement outputs a new collection of strings, manipulating each input identically: `title` capitalizes the first letter of each word, and the `"string ${interpolation}"` prefixes '`New `' on the front.
+This results in:
 
-However, we needn't necessarily convert a list of strings into another list of strings. For example, I can convert the one-dimensional `var.companies` into two-dimensional maps:
+```hcl
+["New Facebook", "New Apple", "New Pied Piper"]
+```
+
+You can also transform a list of **strings** into a list of **objects**:
 
 ```hcl
 [ for company in var.companies : {
-  company = company
+  company        = company
   better_company = "New ${title(company)}"
 } ]
 ```
 
-This would output a list of **objects**:
-```text
+Outputting:
+
+```hcl
 [
-  {
-    company = "facebook"
-    better_company = "New Facebook"
-  },
-  {
-    company = "apple"
-    better_company = "New Apple"
-  },
-  {
-    company = "pied piper"
-    better_company = "New Pied Piper"
-  }
+  { company = "facebook", better_company = "New Facebook" },
+  { company = "apple", better_company = "New Apple" },
+  { company = "pied piper", better_company = "New Pied Piper" }
 ]
 ```
 
-The same principles apply to a `for k, v` when the collection is two-dimensional.
+## Part 2: Nested `for`
 
-## Part 2: Nesting `for`
+Nested `for` statements help consolidate complex data structures, such as lists of objects containing lists.
 
-Nested for statements are most commonly used if we need to consolidate lists of lists of objects. We'll dive into real-world examples in part 3 of this series, but on a high level the structure might look like this:
+Let's start with a high-level example to illustrate the concept.
+
+{{< alert "code" >}}
+You should use comments to explain your reasoning when you are doing something unusual, to clarify relationships between resources in very complex files, or to facilitate automation tools such as doc generators. You should not add comments all over the place to explain basic language syntax.
+
+I am intentionally adding *way* more comments to this block than I normally would to improve the visibility and accessibility of this blog post to authors of many experience levels; I do not condone commenting active code like this unless you get paid per line.
+{{< /alert >}}
 
 ```hcl
 locals {
@@ -128,8 +143,7 @@ locals {
     # with properties name, size. Error handling is out of scope for the example.
     [ for fruit in hue.fruits : 
 
-    # Note that we are moving into {curly braces}, which means we're about to define
-    # a two-dimensional field.
+    # The {curly braces} indicate we are now building a two-dimensional field.
       {
 
         # Nested variables in Terraform inherit scope from their parents by default. That means that
@@ -153,41 +167,28 @@ locals {
     ]
     # Close the 'colors' iterator:
   ]
-  # Get the heck out of this locals block, please
+
 }
 ```
 
-So after all is said and done, colored_fruits yields the following:
-
-```text
+The output is a structured, nested tuple.
+```hcl
 [
-  # Tuple of red things
   [
-    {
-      #...
-      description = "This small, red strawberry tastes sweet."
-    }
-    {
-      #...
-      description = "This big, red apple tastes sweet."
-    }
+    # Fields like color, name, and size omitted here for brevity.
+
+    { description = "This small, red strawberry tastes sweet." },
+    { description = "This big, red apple tastes sweet." }
   ],
-  # Tuple of green things
   [
-    {
-      #...
-      description = "This small, green grape tastes tart."
-    }
-    {
-      #...
-      description = "This big, green watermelon tastes tart." # TODO: Add check block: Watermelons are sweet.
-    }
+    { description = "This small, green grape tastes tart." },
+    { description = "This big, green watermelon tastes tart." } # TODO: Verify sweetness of watermelons.
   ]
 ]
 ```
 
-While we are still dealing with nested *collections*, we are no longer dealing with nested *objects*. This gives us good uniformity to perform meaningful operations, including `flatten`.
+Although we're working with nested **collections**, these aren't nested **objects**, enabling further uniform operations such as using Terraform's built-in `flatten` function.
 
-We'll get into the practical usage and value of `flatten` in the next post. Until then, may the `for`s be with you.
+We'll explore practical examples and the utility of `flatten` in the next post. Until then, may the `for`s be with you.
 
 ---

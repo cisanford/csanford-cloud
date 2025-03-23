@@ -7,6 +7,8 @@ showToc: false
 summary: This is a website
 showHero: true
 featureImage: https://blowfish.page/img/blowfish_logo_transparent.png
+
+weight: 2
 ---
 
 ## csanford.cloud exists now
