@@ -32,6 +32,6 @@ Now that we have a plan, let's get started!
 
 ### Documentation
 
-- [for]("")
-- [flatten]("")
-- [security groups]("")
+- [for](https://developer.hashicorp.com/terraform/language/expressions/for)
+- [flatten](https://developer.hashicorp.com/terraform/language/functions/flatten)
+- [security group rules](https://aws.amazon.com/blogs/aws/easily-manage-security-group-rules-with-the-new-security-group-rule-id/)
