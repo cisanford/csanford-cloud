@@ -183,7 +183,7 @@ params:
     groupByYear: true
     layoutBackgroundBlur: true
     layoutBackgroundHeaderSpace: true
-    orderByWeight: false
+    orderByWeight: true
     showBreadcrumbs: true
     # showCards: true
     # showHero: true
@@ -196,6 +196,11 @@ params:
     excludedKinds:
       - taxonomy
       - term
+
+  taxonomies:
+    tag: tags
+    category: categories
+    series: series
 
   taxonomy:
     cardView: false
@@ -257,7 +262,7 @@ menu:
       weight: 1
     - identifier: blog
       name: Blog
-      pageRef: /posts/
+      pageRef: /blog/
       weight: 2
     # - identifier: projects
     #   name: Projects

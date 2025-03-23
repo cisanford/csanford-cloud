@@ -35,10 +35,19 @@ I have about a decade of experience with support, operations, architecture, and 
   - Artificially expanding my commit history and codebase is on the roadmap
 <!-- - You can download my resume [here](). -->
 
-<!-- ### Stuff I'm really good at people usually want
-- Terraform
-  - I can go into a lot of depth on this, (And we should chat about it! At length!) but if you're a recruiter this is as much detail as you need -->
-
+- You can use this QR code to consume my contact info in `vCard` format:
+{{< qr level="low" scale=2 alt="vCard QR Code" >}}
+BEGIN:VCARD
+VERSION:4.0
+N;CHARSET=UTF-8:Sanford;Christopher;;;
+FN;CHARSET=UTF-8:Christopher Sanford
+EMAIL:chris@csanford.cloud
+PHOTO;MEDIATYPE=image/jpeg:https://github.com/cisanford/csanford-cloud/blob/main/assets/images/headshot.jpg?raw=true
+URL:https://csanford.cloud
+<!-- TEL:  update after re-activating Google Voice number -->
+TZ:America/Los_Angeles
+END:VCARD
+{{< /qr >}}
 
 ---
 
@@ -81,4 +90,4 @@ My experience in Big Tech, Little Tech, and parenting has led me to the followin
 ## Attribution
 
 - This website is powered by [Blowfish](https://blowfish.page/) for Hugo.
-- The repository is public on my GitHub - you're welcome to reuse any code you want within the csanford-cloud without restriction but it's nice to give them credit if you do.
+- The repository is public on my GitHub - you're welcome to reuse any code you want within the csanford-cloud repo without restriction but it's nice to give them credit if you do.
