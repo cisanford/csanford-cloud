@@ -35,10 +35,19 @@ I have about a decade of experience with support, operations, architecture, and 
   - Artificially expanding my commit history and codebase is on the roadmap
 <!-- - You can download my resume [here](). -->
 
-<!-- ### Stuff I'm really good at people usually want
-- Terraform
-  - I can go into a lot of depth on this, (And we should chat about it! At length!) but if you're a recruiter this is as much detail as you need -->
-
+- You can use this QR code to consume my contact info in `vCard` format:
+{{< qr level="low" scale=2 alt="vCard QR Code" >}}
+BEGIN:VCARD
+VERSION:4.0
+N;CHARSET=UTF-8:Sanford;Christopher;;;
+FN;CHARSET=UTF-8:Christopher Sanford
+EMAIL:chris@csanford.cloud
+PHOTO;MEDIATYPE=image/jpeg:https://github.com/cisanford/csanford-cloud/blob/main/assets/images/headshot.jpg?raw=true
+URL:https://csanford.cloud
+TEL:+14252433517
+TZ:America/Los_Angeles
+END:VCARD
+{{< /qr >}}
 
 ---
 
@@ -47,9 +56,15 @@ I have about a decade of experience with support, operations, architecture, and 
 My experience in Big Tech, Little Tech, and parenting has led me to the following tenets of IT leadership:
 
 ### Avoid echo chambers
-- "Venting" is a legitimate thing to do, but most of what tech workers call "venting" is often non-constructive gossip.
+- "Venting" is legitimate, but lots of venting in tech is not results-driven.
 - Don't say anything on Slack you don't want someone to selectively screenshot and send to the entire company.
-- Complaining is fine, but try to keep it results-driven.
+
+### Bus factor awareness
+- If you feel like you can't take a vacation or sick day because "the team needs you", you're generating a business risk.
+
+### Calendar conflicts mean things
+- Don't invite people to meetings "optionally, for awareness"; if they are optional, they can get sufficient awareness from an after-meeting summary (or nothing at all).
+- If you can't find a time that works for everyone, you might be inviting too many people.
 
 ### Get off the pot
 - If you're spending more time planning a project than you would waste by not doing that planning, stop planning and go make some mistakes.
@@ -57,23 +72,15 @@ My experience in Big Tech, Little Tech, and parenting has led me to the followin
 ### Professional sabbath
 - Giving an engineer one Friday a month off to focus on recreation and self-actualization pays for itself and then some.
 
-### Calendar conflicts mean things
-- Don't invite people to meetings "optionally, for awareness"; if they are optional, they can get sufficient awareness from an after-meeting summary (or nothing at all).
-- If you can't find a time that works for everyone, you might be inviting too many people.
-
 ### Utilitarian project management
 - Analysis paralysis happens. While you're busy deciding what to do next, deliver a feature to kill time.
 - Something that reduces customer pain is better than nothing; Busy work is worse than nothing.
 
-### Zoom call multitasking
-- If you're able to get away with not paying attention, you probably don't need to be there. Just decline the invite and keep working.
-
-### Bus factor awareness
-- If you feel like you can't take a vacation or sick day because "the team needs you", you're generating a business risk.
-  - Delegate more work, transfer more knowledge, or decline more requests.
-
 ### Resume driven development
 - Engineers are going to implement solutions in search of problems out of ambition and curiosity anyway; it can be more effective to just assign tickets for pet projects that may go nowhere rather than bloating your code base when someone hunting a promotion turns your kubectl manifest into the next Uber.
+
+### Zoom call multitasking
+- If you're able to get away with not paying attention, you probably don't need to be there. Just decline the invite and keep working.
 
 ### When everything is a P0, nothing is
 - We all feel personally attacked at this one
@@ -81,4 +88,4 @@ My experience in Big Tech, Little Tech, and parenting has led me to the followin
 ## Attribution
 
 - This website is powered by [Blowfish](https://blowfish.page/) for Hugo.
-- The repository is public on my GitHub - you're welcome to reuse any code you want within the csanford-cloud without restriction but it's nice to give them credit if you do.
+- The repository is public on my GitHub - you're welcome to reuse any code you want within the csanford-cloud repo without restriction but it's nice to give them credit if you do.
