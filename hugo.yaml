@@ -172,7 +172,7 @@ params:
     layout: background
     layoutBackgroundBlur: false
     showMoreLink: false
-    showMoreLinkDest: /posts/
+    showMoreLinkDest: /blog/
     showRecent: false
     showRecentItems: 5
 

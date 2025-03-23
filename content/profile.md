@@ -31,8 +31,8 @@ I have about a decade of experience with support, operations, architecture, and 
 ### Links
 - My LinkedIn is [here](https://www.linkedin.com/in/csanford31). Send me a message!
 - If you're into certifications, my Credly wallet is [here](https://www.credly.com/users/christopher-sanford.d404c872).
-- My Github profile is [here](https://github.com/cisanford), if you really want, but be advised that due to work-life balance virtually all my code contributions happen on company-owned organizations.
-  - Artificially expanding my commit history and codebase is on the roadmap
+<!-- - My Github profile is [here](https://github.com/cisanford), if you really want, but be advised that due to work-life balance virtually all my code contributions happen on company-owned organizations.
+  - Artificially expanding my commit history and codebase is on the roadmap -->
 <!-- - You can download my resume [here](). -->
 
 - You can use this QR code to consume my contact info in `vCard` format:
