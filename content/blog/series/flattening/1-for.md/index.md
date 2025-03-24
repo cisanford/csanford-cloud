@@ -142,7 +142,7 @@ A very common situation for nested `for` expressions is when you need to read a 
 Suppose I am writing a module that needs to consume the following variable:
 ```hcl
 variable "fruit_salad" {
-  description = "A list of desirable fruits, sorted by their skin color."
+  description = "A list of desirable fruits, sorted by their external color."
   type = list(object({
     color = string
     flavor = string
