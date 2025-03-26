@@ -264,10 +264,10 @@ menu:
       name: Blog
       pageRef: /blog/
       weight: 2
-    # - identifier: projects
-    #   name: Projects
-    #   url: /projects/
-    #   weight: 3
+    - identifier: baseball
+      name: The Scorecard
+      parent: Projects
+      url: /projects/scorecard
   # footer:
   #   - name: Footer1
   #     url: https://google.com

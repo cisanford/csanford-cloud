@@ -12,7 +12,7 @@ params:
   cardView: true
   groupByYear: false
 
-weight: 1
+weight: 2
 ---
 
 ## Where `for` art thou romeo
