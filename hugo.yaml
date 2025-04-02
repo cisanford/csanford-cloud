@@ -105,7 +105,7 @@ languages:
         links:
         - linkedin: https://www.linkedin.com/in/csanford31/
         - github: https://github.com/cisanford
-        - bluesky: https://bsky.app/profile/cisanford.bsky.social
+        - bluesky: https://bsky.app/profile/csanford.cloud
 
 ###
 # Blowfish config
@@ -260,6 +260,9 @@ menu:
       pageRef:  /profile/
       name: About
       weight: 1
+    - identifier: tenets
+      pageRef: /profile/tenets
+      name: Philosophy
     - identifier: blog
       name: Blog
       pageRef: /blog/
