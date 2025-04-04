@@ -1,0 +1,53 @@
+disabled: false
+languageCode: en
+languageName: English
+weight: 1
+title: Chris Builds Imaginary Computers
+
+params:
+  displayName: EN
+  isoCode: en
+  rtl: false
+  dateFormat: 2 January 2006
+  # logo: "img/logo.png"
+  # secondaryLogo: "img/secondary-logo.png"
+  description: "Christopher Sanford's Internet Lawn"
+  # copyright: "Copy, _right?_ :thinking_face:"
+  author:
+    name: Chris Sanford
+    email: chris@csanford.cloud
+    image: images/headshot.jpg
+    imageQuality: 96
+    headline: Purveyor of fine cloud automation and other curiosities
+    bio: Have you tried updating Adobe Reader?
+    links:
+      - email: "mailto:chris@csanford.cloud"
+      - linkedin: https://www.linkedin.com/in/csanford31/
+      - github: https://github.com/cisanford
+      - bluesky: https://bsky.app/profile/csanford.cloud
+  #     - discord: "https://discord.gg/invitecode"
+  #     - medium: "https://medium.com/username"
+  #     - reddit: "https://reddit.com/user/username"
+  #     - mastodon: "https://mastodon.instance/@username"
+  #     - kickstarter: "https://www.kickstarter.com/profile/username"
+  #     - patreon: "https://www.patreon.com/username"
+  #     - spotify: "https://open.spotify.com/user/userid"
+  #     - twitch: "https://twitch.tv/username"
+  #     - steam: "https://steamcommunity.com/profiles/userid"
+  #     - youtube: "https://youtube.com/username"
+  #     - whatsapp: "https://wa.me/phone-number"
+  #     - link: "https://link-to-some-website.com/"
+  #     - codepen: "https://codepen.io/username"
+  #     - dev: "https://dev.to/username"
+  #     - gitlab: "https://gitlab.com/username"
+  #     - google: "https://www.google.com/"
+  #     - hashnode: "https://username.hashnode.dev"
+  #     - itch-io: "https://username.itch.io"
+  #     - keybase: "https://keybase.io/username"
+  #     - microsoft: "https://www.microsoft.com/"
+  #     - orcid: "https://orcid.org/userid"
+  #     - researchgate: "https://www.researchgate.net/profile/username"
+  #     - soundcloud: "https://soundcloud.com/username"
+  #     - stack-overflow: "https://stackoverflow.com/users/userid/username"
+  #     - telegram: "https://t.me/username"
+  #     - codeberg: "https://codeberg.org/username"

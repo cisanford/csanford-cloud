@@ -1,0 +1,184 @@
+# -- Theme Options --
+# These options control how the theme functions and allow you to
+# customise the display of your website.
+#
+# Refer to the theme docs for more details about each of these parameters.
+# https://blowfish.page/docs/configuration/#theme-parameters
+
+colorScheme: forest
+defaultAppearance: dark
+autoSwitchAppearance: false
+
+enableSearch: true
+enableCodeCopy: true
+
+replyByEmail: false
+
+# mainSections:
+#   - "section1"
+#   - "section2"
+# robots: ""
+
+defaultBackgroundImage: images/seattle-big.png
+# backgroundImageWidth: 1200
+# defaultFeaturedImage: "IMAGE.jpg" # used as default for featured images in all articles
+disableImageOptimization: false
+disableTextInHeader: false
+
+highlightCurrentMenuArea: true
+smartTOC: true
+smartTOCHideUnfocusedChildren: true
+
+giteaDefaultServer: "https://git.fsfe.org"
+forgejoDefaultServer: "https://v8.next.forgejo.org"
+
+article:
+  showDate: true
+  showDateOnlyInArticle: false
+  showDateUpdated: true
+
+  showHero: false
+  # heroStyle: "basic" # valid options: basic, big, background, thumbAndBackground
+  layoutBackgroundBlur: true # only used when heroStyle equals background or thumbAndBackground
+  layoutBackgroundHeaderSpace: true # only used when heroStyle equals background
+
+  invertPagination: false
+  seriesOpened: true
+  showBreadcrumbs: true
+  showDraftLabel: true
+  showTaxonomies: true
+  showHeadingAnchors: true
+  showPagination: true
+  showReadingTime: true
+  showTableOfContents: false
+  sharingLinks:
+    - linkedin
+    - bluesky
+    - mastodon
+  #   - "reddit"
+  #   - "email"
+  #   - "whatsapp"
+  #   - "telegram"
+  showRelatedContent: false
+  showZenMode: false
+  showAuthor: false
+  showAuthorsBadges: false
+  showEdit: false
+  showWordCount: false
+  # editAppendPath: true
+  # showViews: false
+  # showLikes: false
+  # showAuthorBottom: false
+  # editURL: "https://github.com/username/repo/"
+  # relatedContentLimit: 3
+
+header:
+  layout: basic # valid options: basic, fixed, fixed-fill, fixed-gradient, fixed-fill-blur
+
+footer:
+  showMenu: true
+  showCopyright: true
+  showThemeAttribution: false
+  showAppearanceSwitcher: true
+  showScrollToTop: true
+
+
+homepage:
+  layout: background # valid options: page, profile, hero, card, background, custom
+  homepageImage: images/seattle.png
+  showRecent: false
+  # showRecentItems: 5
+  showMoreLink: false
+  # showMoreLinkDest: "/posts/"
+  cardView: false
+  cardViewScreenWidth: false
+  layoutBackgroundBlur: false # only used when layout equals background
+
+
+list:
+  # showHero: true
+  # heroStyle: "background" # valid options: basic, big, background, thumbAndBackground
+  layoutBackgroundBlur: true # only used when heroStyle equals background or thumbAndBackground
+  layoutBackgroundHeaderSpace: true # only used when heroStyle equals background
+  showBreadcrumbs: true
+  showSummary: true
+
+  showTableOfContents: false
+  showCards: true
+
+  orderByWeight: false
+
+  cardView: false
+  cardViewScreenWidth: false
+  constrainItemsWidth: false
+
+  # showViews: false
+  # showLikes: false
+
+sitemap:
+  excludedKinds:
+    - "taxonomy"
+    - "term"
+
+taxonomy:
+  showTermCount: true
+  showHero: false
+  # heroStyle: "background" # valid options: basic, big, background, thumbAndBackground
+  showBreadcrumbs: false
+  showTableOfContents: false
+  cardView: false
+  # showViews: false
+  # showLikes: false
+
+term:
+  showHero: false
+  # heroStyle: "background" # valid options: basic, big, background, thumbAndBackground
+  showBreadcrumbs: false
+  showTableOfContents: true
+  groupByYear: false
+  cardView: false
+  cardViewScreenWidth: false
+  # showViews: false
+  # showLikes: false
+
+firebase:
+  # apiKey: "XXXXXX"
+  # authDomain: "XXXXXX"
+  # projectId: "XXXXXX"
+  # storageBucket: "XXXXXX"
+  # messagingSenderId: "XXXXXX"
+  # appId: "XXXXXX"
+  # measurementId: "XXXXXX"
+
+fathomAnalytics:
+  # site: "ABC12345"
+  # domain: "llama.yoursite.com"
+
+umamiAnalytics:
+  # websiteid: "ABC12345"
+  # domain: "llama.yoursite.com"
+  # dataDomains: "yoursite.com,yoursite2.com"
+  # scriptName: ""
+  # enableTrackEvent: true
+
+selineAnalytics:
+  # token: "XXXXXX"
+  # enableTrackEvent: true
+
+buymeacoffee:
+  # identifier: ""
+  # globalWidget: true
+  # globalWidgetMessage: "Hello"
+  # globalWidgetColor: "#FFDD00"
+  # globalWidgetPosition: "Right"
+
+verification:
+  # google: ""
+  # bing: ""
+  # pinterest: ""
+  # yandex: ""
+  # fediverse: ""
+
+rssnext:
+  # feedId: ""
+  # userId: ""

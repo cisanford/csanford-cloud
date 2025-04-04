@@ -23,3 +23,5 @@ resources/_gen*
 .vscode/*
 content/posts/20250307.md
 mise.toml
+TODO
+archetypes/README.md

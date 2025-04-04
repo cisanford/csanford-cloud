@@ -1,13 +1,21 @@
+<!-- This is the HTML for the homepage if it is in a background layout -->
+
+
 {{ $disableImageOptimization := .Site.Params.disableImageOptimization | default false }}
+
 <article class="max-w-full prose dark:prose-invert">
 
     <div class="relative">
-        <!-- Structure where the background image "goes" -->
+
         <div class="absolute inset-x-0 bottom-0 h-1/2 bg-gray-100"></div>
+
         <div class="mx-auto max-w-7xl p-0">
+
             <div class="relative sm:overflow-hidden">
-                <!-- Display the actual background and homepage images -->
+
                 <div class="fixed inset-x-0 top-0" style="z-index:-10">
+
+<!-- ========== Look up homepage image, if any =================== -->
                     {{ $homepageImage := "" }}
                     {{ with .Site.Params.defaultBackgroundImage }}
 
@@ -18,6 +26,7 @@
                         {{ end }}
 
                     {{ end }}
+
                     {{ with .Site.Params.homepage.homepageImage }}
 
                         {{ if or (strings.HasPrefix . "http:") (strings.HasPrefix . "https:") }}
@@ -27,11 +36,13 @@
                         {{ end }}
 
                     {{ end }}
-
+<!-- ===================== Display hompage image, if present ===================================== -->
                     {{ if $homepageImage }}
-                    <img class="w-full h-[1000px] object-cover m-0 nozoom" src="{{ $homepageImage.RelPermalink }}" role="presentation">
+
+                    <img class="w-full h-[1000px] object-cover m-0 nozoom" src="{{ $homepageImage.RelPermalink }}" role="presentation" style="margin: 0">
                     <div
                         class="absolute inset-0 h-[1000px] bg-gradient-to-t from-neutral dark:from-neutral-800 to-transparent mix-blend-normal">
+                        <!-- Create the rainCanvas and embed it in the background image. -->
                         <canvas
                         id="rainCanvas">
                          </canvas>
@@ -39,16 +50,15 @@
 
                     <div
                         class="opacity-60 absolute inset-0 h-[1000px] bg-gradient-to-t from-neutral dark:from-neutral-800 to-neutral-100 dark:to-neutral-800 mix-blend-normal">
-                        {{/*  <canvas
-                        id="rainCanvas">
-                         </canvas>  */}}
                     </div>
 
                     {{ end }}
-  
+<!-- ===========End <div class="fixed inset-x-0 top-0" style="z-index:-10">==================== -->
                 </div>
 
+
                 <div class="relative px-1 py-1 flex flex-col items-center justify-center text-center">
+
                     {{ with .Site.Params.Author.image }}
                         {{ $authorImage := "" }}
                         {{ if or (strings.HasPrefix . "http:") (strings.HasPrefix . "https:") }}
@@ -105,7 +115,5 @@
 </script>
 {{ end }}
 
-<!-- At the very bottom of background.html -->
-{{ if and .IsHome (eq .Site.Params.homepage.layout "background") }}
-  <script src="{{ "js/rain.js" | relURL }}"></script>
-{{ end }}
+<!-- Turn on the rain, in the rain canvas. -->
+<script src="{{ "js/rain.js" | relURL }}"></script>
