@@ -3,6 +3,7 @@
 theme: blowfish
 baseURL: https://csanford.cloud/
 defaultContentLanguage: en
+timeout: 60s
 
 pluralizeListTitles: true
 

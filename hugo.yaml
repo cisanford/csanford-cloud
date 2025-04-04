@@ -1,0 +1,12 @@
+theme: blowfish
+
+module:
+
+
+  hugoVersion:
+
+
+    extended: true
+
+
+    min: 0.141.0
