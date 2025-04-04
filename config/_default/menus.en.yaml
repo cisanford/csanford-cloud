@@ -15,22 +15,23 @@ main:
     pageRef: blog
     weight: 10
 
-  - name: "Parent"
-    weight: 20
+  - name: 👋 Profile & Contact
+    parent: About
+    pageRef: profile/contact
+    weight: 21
 
-  - name: "example sub-menu 1"
-    parent: Parent
-    pageRef: profile
-    weight: 20
-
-  - name: "example sub-menu 2"
-    parent: Parent
+  - name: ⚖️ Philosophy
+    parent: About
     pageRef: profile/tenets
-    weight: 20
+    weight: 22
 
   - name: Projects
-    pageRef: projects
     weight: 30
+
+  - name: ⚾ Baseball
+    parent: Projects
+    pageRef: projects/scorecard
+    weight: 40
 
 # subnavigation:
 #   - name: "An interesting topic"

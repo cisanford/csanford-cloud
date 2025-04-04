@@ -1,0 +1,145 @@
+{
+    "resume": {
+        "name": "Chris Sanford",
+        "subtitle": "Cloud Engineer & Architect",
+        "contact": {
+            "tel": "+14252433517",
+            "email": "chris@csanford.cloud",
+            "linkedin": "https://www.linkedin.com/in/csanford31/",
+            "site": "https://csanford.cloud"
+        },
+        "summary": "Senior Cloud Engineer & Architect with 6+ years of experience specializing in AWS infrastructure, Terraform automation, Kubernetes deployments, and cloud security. Led strategic initiatives including infrastructure internationalization and modular IaC solutions. Effective mentor known for building strong, agile engineering teams.",
+        "skills": [
+            {
+                "category": "Cloud Platforms",
+                "items": [
+                    "AWS",
+                    "GCP"
+                ]
+            },
+            {
+                "category": "Infrastructure as Code and Automation",
+                "items": [
+                    "Terraform",
+                    "CloudFormation",
+                    "Python",
+                    "Powershell"
+                ]
+            },
+            {
+                "category": "Containerization & Orchestration",
+                "items": [
+                    "Docker",
+                    "Kubernetes",
+                    "EKS",
+                    "GKE"
+                ]
+            },
+            {
+                "category": "DevOps Tools",
+                "items": [
+                    "Jenkins",
+                    "Github Actions"
+                ]
+            },
+            {
+                "category": "Miscellaneous keywords for ATS nonsense",
+                "items": [
+                    "Agile",
+                    "Scrum",
+                    "Kanban",
+                    "CI/CD",
+                    "SRE",
+                    "GitOps",
+                    "IaC",
+                    "Cloud Security",
+                    "AWS Well Architected Framework",
+                    "VPC",
+                    "ECS",
+                    "EKS",
+                    "End User Compute",
+                    "GKE",
+                    "Subnets",
+                    "NordVPN"
+                ]
+            }
+        ],
+        "experience": [
+            {
+                "title": "Cloud Engineer III",
+                "company": "Chewy",
+                "location": "Bellevue, WA",
+                "dates": "09/21 - 04/25",
+                "responsibilities": [
+                    "Launched Chewy's private Terraform registry, consolidating module codebases and reducing infrastructure deployment times.",
+                    "Led IaC refactoring for Canadian expansion, reducing onboarding time and improving reliability of international deployments.",
+                    "Architected scalable Amazon WorkSpaces platform, enabling secure remote work across multiple regions and diverse use cases.",
+                    "Mentored junior teammates, resulting in improved operational autonomy and reduced escalation frequency."
+                ]
+            },
+            {
+                "title": "Cloud Solutions Architect ",
+                "company": "SynchroNet",
+                "location": "Remote",
+                "dates": "10/20 - 09/21",
+                "responsibilities": [
+                    "Delivered AWS EUC solutions with Amazon WorkSpaces and AppStream, enhancing customer remote work and distance learning capabilities.",
+                    "Improved infrastructure deployment efficiency through expanded Terraform and PowerShell automation.",
+                    "Delivered executive AWS training workshops, boosting client technical leadership and adoption of best practices."
+                ]
+            },
+            {
+                "title": "Cloud Support Engineer",
+                "company": "Amazon Web Services",
+                "location": "Seattle, WA",
+                "dates": "09/18 - 10/20",
+                "responsibilities": [
+                    "Provided advanced AWS technical support, resolving complex Windows Server and Amazon WorkSpaces issues.",
+                    "Authored public documentation and tutorials, significantly reducing incoming case volume."
+                ]
+            }
+        ],
+        "education": [
+            {
+                "institution": "University of Colorado Global Campus",
+                "degrees": [
+                    {
+                        "degree": "Bachelor of Science",
+                        "major": "Information Technology",
+                        "dates": "2016 - 2020"
+                    },
+                    {
+                        "degree": "Master of Science",
+                        "major": "Artificial Intelligence & Machine Learning",
+                        "dates": "2025 - 2027 (est)"
+                    }
+                ]
+            }
+        ],
+        "certifications": [
+            {
+                "vendor": "AWS",
+                "certifications": [
+                    "AWS Certified Solutions Architect - Associate",
+                    "AWS Certified Solutions Architect - Professional",
+                    "AWS Certified Security - Specialty"
+                ]
+            },
+            {
+                "vendor": "HashiCorp",
+                "certifications": [
+                    "HashiCorp Certified: Terraform Authoring & Operations Professional"
+                ]
+            },
+            {
+                "vendor": "CompTIA",
+                "certifications": [
+                    "CompTIA Security Analytics Professional",
+                    "CompTIA CySA+",
+                    "CompTIA Security+",
+                    "CompTIA Network+"
+                ]
+            }
+        ]
+    }
+}

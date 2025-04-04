@@ -26,15 +26,17 @@ I have experience helping optimize around both of those concepts.
 
 ## Professional Background
 
-I have about a decade of experience with support, operations, architecture, and engineering in AWS.
+I have about a decade of experience with support, operations, architecture, and engineering in AWS. Less experience in all the other clouds, but I've found that McDonald's is a lot more predictable once you've mastered Wendy's.
+
+### Downloads
+Feel free to take a copy of my resume:
+- [PDF](/files/Chris_Sanford_Resume_20250331.pdf)
+- [Word](/files/Chris_Sanford_Resume_20250331.docx)
+- [JSON](/files/Chris_Sanford_Resume_20250331.json) (for programmatic access)
 
 ### Links
 - My LinkedIn is [here](https://www.linkedin.com/in/csanford31). Send me a message!
 - If you're into certifications, my Credly wallet is [here](https://www.credly.com/users/christopher-sanford.d404c872).
-<!-- - My Github profile is [here](https://github.com/cisanford), if you really want, but be advised that due to work-life balance virtually all my code contributions happen on company-owned organizations.
-  - Artificially expanding my commit history and codebase is on the roadmap -->
-<!-- - You can download my resume [here](). -->
-
 - You can use this QR code to consume my contact info in `vCard` format:
 {{< qr level="low" scale=2 alt="vCard QR Code" >}}
 BEGIN:VCARD
