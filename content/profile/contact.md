@@ -6,6 +6,7 @@ aliases:
   - /me
 showToc: false
 layout: simple
+showBreadcrumbs: false
 ---
 
 # Solving problems that involve people using computers

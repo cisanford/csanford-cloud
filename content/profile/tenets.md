@@ -5,6 +5,7 @@ aliases:
   - /philosophy
 showToc: false
 layout: simple
+showBreadcrumbs: false
 ---
 
 ## Professional Philosophy
