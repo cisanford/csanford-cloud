@@ -12,6 +12,12 @@ layout: simple
 
 ![it's good weather for ducks](/images/seattle.png)
 
+---
+
+## Professional Background
+
+I have about a decade of experience with support, operations, architecture, and engineering in AWS. Less experience in all the other clouds, but I've found that McDonald's is a lot more predictable once you've mastered Wendy's.
+
 I believe that organizations thrive when we all acknowledge two fundamental truths about software engineering:
 - Computers always and exclusively do what they are told
 - People are not computers
@@ -21,12 +27,6 @@ I believe that organizations thrive when we all acknowledge two fundamental trut
 {{< /alert >}}
 
 I have experience helping optimize around both of those concepts.
-
----
-
-## Professional Background
-
-I have about a decade of experience with support, operations, architecture, and engineering in AWS. Less experience in all the other clouds, but I've found that McDonald's is a lot more predictable once you've mastered Wendy's.
 
 ### Downloads
 Feel free to take a copy of my resume:

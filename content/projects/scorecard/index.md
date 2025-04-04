@@ -27,4 +27,7 @@ But then comes the math. I really loved the [Eephus League Halfliner](https://ee
 
 After three years of painstakingly drawing, re-drawing, and play testing designs, I settled on this one as "good enough" to print out in a full 81-page notebook. I used [Mixam](https://mixam.com/) for that job, since they seemed to be the most effective at printing large spiral-bound books, but it's just as good to swing by a Kinko's on your way to the ballpark and print one page out from the PDF.
 
-You can download the resources [on my GitHub](https://github.com/cisanford/baseball) for now, and I'll host them here later when I come back to pretty up the page.
+## OK, I didn't ask for your life story. Where can I get this scorebook?
+
+- The full PDF is available for download [here](/submodules/baseball/printable/full_scorebook.pdf).
+- You can explore the resources including the .drawio layouts [on my GitHub](https://github.com/cisanford/baseball). Feel free to make changes with it, but not money (Creative Commons Attribution-NonCommercial 4.0).
