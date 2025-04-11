@@ -1,0 +1,1 @@
+terraform init -backend-config="path=${LOCAL_BACKEND}/csanford-cloud/terraform.tfstate"
