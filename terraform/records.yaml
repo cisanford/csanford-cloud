@@ -1,0 +1,57 @@
+a:
+  # Github Pages
+  - host: '@'
+    value: '185.199.108.153'
+  - host: '@'
+    value: '185.199.109.153'
+  - host: '@'
+    value: '185.199.110.153'
+  - host: '@'
+    value: '185.199.111.153'
+aaaa:
+  # Github Pages
+  - host: '@'
+    value: '2606:50c0:8000::153'
+  - host: '@'
+    value: '2606:50c0:8001::153'
+  - host: '@'
+    value: '2606:50c0:8002::153'
+  - host: '@'
+    value: '2606:50c0:8003::153'
+  
+cname:
+  # Github Pages
+  - host: 'www'
+    value: 'cisanford.github.io.'
+  # Protonmail DKIM
+  - host: 'dkim._domainkey'
+    value: 'dkim._domainkey.alias.proton.me.'
+  - host: 'dkim02._domainkey'
+    value: 'dkim02._domainkey.alias.proton.me.'
+  - host: 'dkim02._domainkey'
+    value: 'dkim02._domainkey.alias.proton.me.' 
+  - host: 'dkim03._domainkey'
+    value: 'dkim03._domainkey.alias.proton.me.' 
+mx:
+  # Protonpass Alias Host
+  - host: '@'
+    value: 'mx1.alias.proton.me.'
+    weight: 10
+  - host: '@'
+    value: 'mx2.alias.proton.me.'
+    weight: 20
+txt:
+  # Domain ownership
+  - host: '@'
+    value: 'protonmail-verification=599be2e5353f2e11b0612b4fdddaf0eb62801e83'
+  - host: '@'
+    value: 'pm-verification=njhbpmjnozejfdktotmbaakieqrezb'
+  - host: '_github-pages-challenge-cisanford'
+    value: 'eb6da4d6c4d633e64a6dfa98c2bda7'
+  - host: '_atproto'
+    value: 'did=did:plc:gjdw3njrtatuwxhblxkb5gpn'
+  # SPF / DMARC
+  - host: '@'
+    value: 'v=spf1 include:alias.proton.me ~all'
+  - host: '_dmarc'
+    value: 'v=DMARC1; p=quarantine; pct=100; adkim=s; aspf=s'
