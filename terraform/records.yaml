@@ -24,6 +24,12 @@ cname:
   - host: 'www'
     value: 'cisanford.github.io.'
   # Protonmail DKIM
+  - host: 'protonmail._domainkey'
+    value: 'protonmail.domainkey.dgdojliwdrxjhwctyfciygwy4lsgpxgd27g4dgfz4bvvinljabo5a.domains.proton.ch.'
+  - host: 'protonmail2._domainkey'
+    value: 'protonmail2.domainkey.dgdojliwdrxjhwctyfciygwy4lsgpxgd27g4dgfz4bvvinljabo5a.domains.proton.ch.'
+  - host: 'protonmail3._domainkey'
+    value: 'protonmail3.domainkey.dgdojliwdrxjhwctyfciygwy4lsgpxgd27g4dgfz4bvvinljabo5a.domains.proton.ch.'
   - host: 'dkim._domainkey'
     value: 'dkim._domainkey.alias.proton.me.'
   - host: 'dkim02._domainkey'
@@ -33,13 +39,20 @@ cname:
   - host: 'dkim03._domainkey'
     value: 'dkim03._domainkey.alias.proton.me.' 
 mx:
+  # Protonmail
+  - host: '@'
+    value: 'mail.protonmail.ch'
+    weight: 10
+  - host: '@'
+    value: mailsec.protonmail.ch
+    weight: 20
   # Protonpass Alias Host
   - host: '@'
     value: 'mx1.alias.proton.me.'
-    weight: 10
+    weight: 30
   - host: '@'
     value: 'mx2.alias.proton.me.'
-    weight: 20
+    weight: 31
 txt:
   # Domain ownership
   - host: '@'
@@ -52,6 +65,6 @@ txt:
     value: 'did=did:plc:gjdw3njrtatuwxhblxkb5gpn'
   # SPF / DMARC
   - host: '@'
-    value: 'v=spf1 include:alias.proton.me ~all'
+    value: 'v=spf1 include:_spf.protonmail.ch include:alias.proton.me ~all'
   - host: '_dmarc'
     value: 'v=DMARC1; p=quarantine; pct=100; adkim=s; aspf=s'
