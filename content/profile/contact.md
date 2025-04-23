@@ -1,5 +1,6 @@
 ---
 outputs: ["HTML"]
+title: About Chris
 description: "Solving problems that involve people using computers."
 aliases:
   - /about
