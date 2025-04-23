@@ -1,6 +1,6 @@
 locals {
   # Import the payload:
-  colors = yamldecode(var.manifest_path) # Path to the YAML above
+  colors = yamldecode(file(var.manifest_path)) # Path to the YAML above
 
   # Iterate through outer list. I'm using 'hue' as my iterator to remove ambiguity with the sub field also called 'color':
   colored_fruits = [ for hue in local.colors : 
@@ -35,17 +35,16 @@ locals {
   ]
 }
 
-locals {
-  output = [
-    [
-      # Fields like color, name, and size omitted here for brevity.
+# Hypothetical value of local.colored_fruits, simplified for illustration:
+# [
+#   [
+#     # Fields like color, name, and size omitted here for brevity.
 
-      { description = "This small, red strawberry tastes sweet." },
-      { description = "This big, red apple tastes sweet." }
-    ],
-    [
-      { description = "This small, green grape tastes tart." },
-      { description = "This big, green watermelon tastes tart." } # TODO: Verify sweetness of watermelons.
-    ]
-  ]
-}
+#     { description = "This small, red strawberry tastes sweet." },
+#     { description = "This big, red apple tastes sweet." }
+#   ],
+#   [
+#     { description = "This small, green grape tastes tart." },
+#     { description = "This big, green watermelon tastes tart." } # TODO: Verify sweetness of watermelons.
+#   ]
+# ]
