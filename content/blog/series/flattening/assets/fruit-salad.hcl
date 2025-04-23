@@ -16,12 +16,13 @@ locals {
         # each 'fruit' is aware of the fields in its parent, the 'color'.
         # 'hue' is the iterator for the outer list...
 
-        color = hue.color
+        color  = hue.color
+        flavor = fruit.flavor
 
         # and 'fruit' is the iterator for the inner list.
-        name  = fruit.name
-        size  = fruit.size
-
+        name = fruit.name
+        size = fruit.size
+        
         # What we've done here is consolidate these string values from two scopes (outer and inner)
         # to just one scope (this object).
         
@@ -35,16 +36,41 @@ locals {
   ]
 }
 
-# Hypothetical value of local.colored_fruits, simplified for illustration:
-# [
-#   [
-#     # Fields like color, name, and size omitted here for brevity.
-
-#     { description = "This small, red strawberry tastes sweet." },
-#     { description = "This big, red apple tastes sweet." }
-#   ],
-#   [
-#     { description = "This small, green grape tastes tart." },
-#     { description = "This big, green watermelon tastes tart." } # TODO: Verify sweetness of watermelons.
-#   ]
-# ]
+# Explicitly defined version of the final value of local.colored_fruits:
+locals{
+  flattened_for_output = [
+    [
+      { 
+        name        = "strawberry"
+        size        = "small"
+        color       = "red"
+        flavor      = "sweet"
+        description = "This small, red strawberry tastes sweet." 
+      },
+      {       
+        name        = "apple"
+        size        = "big"
+        color       = "red"
+        flavor      = "sweet"
+        description = "This big, red apple tastes sweet."
+      }
+    ],
+    [
+      { 
+        name        = "grape"
+        size        = "small"
+        color       = "green"
+        flavor      = "tart"
+        description = "This small, green grape tastes tart."
+      },
+      {
+        name   = "watermelon"
+        size   = "big"
+        color  = "green"
+        flavor = "tart"
+        # TODO: Verify sweetness of watermelons.
+        description = "This big, green watermelon tastes tart."
+      } 
+    ]
+  ]
+}

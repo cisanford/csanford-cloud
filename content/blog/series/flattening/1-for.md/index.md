@@ -168,66 +168,11 @@ I am intentionally adding *way* more comments to this block than I normally woul
 
 This snippet uses `yamldecode` to convert the **string** value returned by the `file` function into an object before transforming it.
 
-{{< codeimporter url="https://raw.githubusercontent.com/cisanford/csanford-cloud/for-2/content/blog/series/flattening/assets/fruit-salad.hcl" type="hcl" startLine="1" endLine="36" >}}
-
-<!-- ```hcl
-locals {
-  # Import the payload:
-  colors = yamldecode(var.manifest_path) # Path to the YAML above
-
-  # Iterate through outer list. I'm using 'hue' as my iterator to remove ambiguity with the sub field also called 'color':
-  colored_fruits = [ for hue in local.colors : 
-
-    # We assume that every color has a field called 'fruits' which is a list of objects
-    # with properties name, size. Error handling is out of scope for the example.
-    [ for fruit in hue.fruits : 
-
-    # The {curly braces} indicate we are now building a two-dimensional field.
-      {
-
-        # Nested variables in Terraform inherit scope from their parents by default. That means that
-        # each 'fruit' is aware of the fields in its parent, the 'color'.
-        # 'hue' is the iterator for the outer list...
-
-        color = hue.color
-
-        # and 'fruit' is the iterator for the inner list.
-        name  = fruit.name
-        size  = fruit.size
-
-        # What we've done here is consolidate these string values from two scopes (outer and inner)
-        # to just one scope (this object).
-        
-        # We can also combine all these fields into something more useful.
-        description = "This ${fruit.size}, ${hue.color} ${fruit.name} tastes ${hue.flavor}."
-      }
-      
-      # Close the 'fruits' iterator:
-    ]
-    # Close the 'colors' iterator:
-  ]
-
-}
-``` -->
+{{< codeimporter url="https://raw.githubusercontent.com/cisanford/csanford-cloud/for-2/content/blog/series/flattening/assets/fruit-salad.hcl" type="hcl" startLine="1" endLine="37" >}}
 
 The output is a structured, nested tuple.
 
-{{< codeimporter url="https://raw.githubusercontent.com/cisanford/csanford-cloud/for-2/content/blog/series/flattening/assets/fruit-salad.hcl" type="hcl" startLine="38" endLine="51" >}}
-
-<!-- ```hcl
-[
-  [
-    # Fields like color, name, and size omitted here for brevity.
-
-    { description = "This small, red strawberry tastes sweet." },
-    { description = "This big, red apple tastes sweet." }
-  ],
-  [
-    { description = "This small, green grape tastes tart." },
-    { description = "This big, green watermelon tastes tart." } # TODO: Verify sweetness of watermelons.
-  ]
-]
-``` -->
+{{< codeimporter url="https://raw.githubusercontent.com/cisanford/csanford-cloud/for-2/content/blog/series/flattening/assets/fruit-salad.hcl" type="hcl" startLine="39" endLine="76" >}}
 
 We still have a reasonably complicated data set (nested collections), but it's *much* tidier than where we started (nested objects). We've transformed elements from multiple scopes, and now have entries for each of the most specific entries in the manifest.
 
