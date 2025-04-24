@@ -10,7 +10,7 @@ showBreadcrumbs: false
 
 ## Professional Philosophy
 
-My experience in Big Tech, Little Tech, and parenting has led me to the following tenets of IT leadership (in alphabetical order):
+My experience in Big Tech, Little Tech, and parenting has led me to the following tenets of IT leadership:
 
 ### Avoid echo chambers
 - "Venting" is legitimate, but lots of venting in tech is not results-driven.
