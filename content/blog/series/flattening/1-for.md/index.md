@@ -156,7 +156,7 @@ variable "fruit_salad" {
 
 You can greatly improve your user experience by ingesting this variable in a YAML manifest. For example:
 
-{{< codeimporter url="https://raw.githubusercontent.com/cisanford/csanford-cloud/for-2/content/blog/series/flattening/assets/fruit-salad.yaml" type="yaml" >}}
+{{< codeimporter url="https://raw.githubusercontent.com/cisanford/csanford-cloud/fix-dns/content/blog/series/flattening/assets/fruit-salad.yaml" type="yaml" >}}
 
 The following HCL snippet will demonstrate how to iterate through this YAML using `for`.
 
@@ -168,11 +168,11 @@ I am intentionally adding *way* more comments to this block than I normally woul
 
 This snippet uses `yamldecode` to convert the **string** value returned by the `file` function into an object before transforming it.
 
-{{< codeimporter url="https://raw.githubusercontent.com/cisanford/csanford-cloud/for-2/content/blog/series/flattening/assets/fruit-salad.hcl" type="hcl" startLine="1" endLine="37" >}}
+{{< codeimporter url="https://raw.githubusercontent.com/cisanford/csanford-cloud/fix-dns/content/blog/series/flattening/assets/fruit-salad.hcl" type="hcl" startLine="1" endLine="37" >}}
 
 The output is a structured, nested tuple.
 
-{{< codeimporter url="https://raw.githubusercontent.com/cisanford/csanford-cloud/for-2/content/blog/series/flattening/assets/fruit-salad.hcl" type="hcl" startLine="39" endLine="76" >}}
+{{< codeimporter url="https://raw.githubusercontent.com/cisanford/csanford-cloud/fix-dns/content/blog/series/flattening/assets/fruit-salad.hcl" type="hcl" startLine="39" endLine="76" >}}
 
 We still have a reasonably complicated data set (nested collections), but it's *much* tidier than where we started (nested objects). We've transformed elements from multiple scopes, and now have entries for each of the most specific entries in the manifest.
 

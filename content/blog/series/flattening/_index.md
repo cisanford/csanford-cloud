@@ -11,6 +11,7 @@ cascade:
 params:
   cardView: true
   groupByYear: false
+  orderByWeight: true
 
 weight: 2
 ---
