@@ -73,11 +73,11 @@ We'll reference some content from the last post, so to save you the trouble of t
 
 In [part 1](../nested-for), we introduced a scenario where we needed to action a group of fruits as described in the following YAML snippet:
 
-{{< codeimporter url="https://raw.githubusercontent.com/cisanford/csanford-cloud/fix-dns/content/blog/series/flattening/assets/fruit-salad.yaml" type="yaml" >}}
+{{< codeimporter url="https://raw.githubusercontent.com/cisanford/csanford-cloud/main/content/blog/series/flattening/assets/fruit-salad.yaml" type="yaml" >}}
 
 Using nested `for` expressions, we converted that YAML into nested tuples:
 
-{{< codeimporter url="https://raw.githubusercontent.com/cisanford/csanford-cloud/fix-dns/content/blog/series/flattening/assets/fruit-salad.hcl" type="hcl" startLine="39" endLine="76" >}}
+{{< codeimporter url="https://raw.githubusercontent.com/cisanford/csanford-cloud/main/content/blog/series/flattening/assets/fruit-salad.hcl" type="hcl" startLine="39" endLine="76" >}}
 
 ### Moving on
 
@@ -93,13 +93,13 @@ Suppose we want to make multiple resources (in this case, four of them) called `
 
 To create zero-to-many fruit chunks for a kebab, we can use a `for_each` block:
 
-{{< codeimporter url="https://raw.githubusercontent.com/cisanford/csanford-cloud/fix-dns/content/blog/series/flattening/assets/fruit-kebab.hcl" type="hcl" startLine="5" endLine="16" >}}
+{{< codeimporter url="https://raw.githubusercontent.com/cisanford/csanford-cloud/main/content/blog/series/flattening/assets/fruit-kebab.hcl" type="hcl" startLine="5" endLine="16" >}}
 
 Eagle-eyed observers will note that this for_each argument requires a **list of objects**.
 
 I wish I could say this grand reveal is complicated and flashy, but it's not:
 
-{{< codeimporter url="https://raw.githubusercontent.com/cisanford/csanford-cloud/fix-dns/content/blog/series/flattening/assets/fruit-kebab.hcl" type="hcl" startLine="1" endLine="3" >}}
+{{< codeimporter url="https://raw.githubusercontent.com/cisanford/csanford-cloud/main/content/blog/series/flattening/assets/fruit-kebab.hcl" type="hcl" startLine="1" endLine="3" >}}
 
 That simple flatten statement will convert a nested list structure (`[[obj, obj], [obj, obj]]`) to a flat one (`[obj, obj, obj, obj]`) in one go. The **flattened** version is suitable for a `for_each` meta-argument.
 
