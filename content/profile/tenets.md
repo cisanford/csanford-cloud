@@ -11,7 +11,7 @@ showBreadcrumbs: false
 
 ## Professional Philosophy
 
-My experience across large and small organizations — and, honestly, parenthood — has shaped the following principles for how I approach IT leadership.
+My experience across large and small organizations (and old and young people!) has shaped the following principles for how I approach IT leadership.
 
 ### 💬 Foster constructive dialogue
 - Venting has its place, but sustainable teams channel frustrations into outcomes. Ask: "what would a good solution actually look like?"
