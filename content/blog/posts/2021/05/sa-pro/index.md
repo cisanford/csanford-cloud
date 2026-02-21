@@ -6,7 +6,7 @@ summary: "Verified certifiable: Lessons learned from the AWS Certified Solutions
 showReadingTime: false
 showHero: false
 tags: ['AWS', 'external']
-_build:
+build:
   render: "false"
   list: "local"
 

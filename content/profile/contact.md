@@ -36,6 +36,8 @@ Feel free to take a copy of my resume:
 - [Word](/files/Chris_Sanford_Resume_20250331.docx)
 - [JSON](/files/Chris_Sanford_Resume_20250331.json) (for programmatic access)
 
+_File last updated March 31, 2025_
+
 ### Links
 - My LinkedIn is [here](https://www.linkedin.com/in/csanford31). Send me a message!
 - If you're into certifications, my Credly wallet is [here](https://www.credly.com/users/christopher-sanford.d404c872).
@@ -58,4 +60,4 @@ END:VCARD
 ## Attribution
 
 - This website is powered by [Blowfish](https://blowfish.page/) for Hugo.
-- The repository is public on my GitHub - you're welcome to reuse any code you want within the csanford-cloud repo without restriction but it's nice to give them credit if you do.
+- The repository is public on my GitHub - you're welcome to reuse any code you want within the csanford-cloud repo without restriction but it's nice to give Blowfish credit if you do.

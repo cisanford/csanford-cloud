@@ -9,4 +9,4 @@ module:
     extended: true
 
 
-    min: 0.141.0
+    min: 0.156.0

@@ -8,36 +8,42 @@ layout: simple
 showBreadcrumbs: false
 ---
 
+
 ## Professional Philosophy
 
-My experience in Big Tech, Little Tech, and parenting has led me to the following tenets of IT leadership:
+My experience across large and small organizations — and, honestly, parenthood — has shaped the following principles for how I approach IT leadership.
 
-### Avoid echo chambers
-- "Venting" is legitimate, but lots of venting in tech is not results-driven.
-- Don't say anything on Slack you don't want someone to selectively screenshot and send to the entire company.
+### 💬 Foster constructive dialogue
+- Venting has its place, but sustainable teams channel frustrations into outcomes. Ask: "what would a good solution actually look like?"
+- Assume every message you send could be read by a wider audience than intended. Be thoughtful, not fearful.
 
-### Bus factor awareness
-- If you feel like you can't take a vacation or sick day because "the team needs you", you're generating a business risk.
+### 🚌 Build resilient teams
+- If a team can't function when you're on vacation or out sick, that's a leadership gap worth closing. Bus factor is a real risk, not a badge of honor or job security.
 
-### Calendar conflicts mean things
-- Don't invite people to meetings "optionally, for awareness"; if they are optional, they can get sufficient awareness from an after-meeting summary (or nothing at all).
-- If you can't find a time that works for everyone, you might be inviting too many people.
+### ⏲️ Respect people's time
+- Optional calendar invites are a contradiction. If someone doesn't need to be there, an async summary is usually enough.
+- If you can't find a time that works for everyone on the invite, that's often a sign the invite list is too long.
 
-### Get off the pot
-- If you're spending more time planning a project than you would waste by not doing that planning, stop planning and go make some mistakes.
+### 🚽 [Bikeshedding](https://en.wikipedia.org/wiki/Law_of_triviality)
+- If you're spending more time planning than the plan is worth, it's time to start making informed mistakes.
+- Learning from a scoped failure is often faster than perfecting a plan. (Indeed, a failure will probably change even the most mature plan.)
 
-### Professional sabbath
-- Giving an engineer one Friday a month off to focus on recreation and self-actualization pays for itself and then some.
+### ⛳ Invest in recovery
+- Giving engineers dedicated time for exploration and self-directed work pays dividends in creativity, retention, and morale.
+- [In layman's terms](http://p1.portal2sounds.com/129), "Being sick of working every friday" can be truncated to "Being sick" and therefore you should stay home.
 
-### Utilitarian project management
-- Analysis paralysis happens. While you're busy deciding what to do next, deliver a feature to kill time.
-- Something that reduces customer pain is better than nothing; Busy work is worse than nothing.
+### 🛠️ Deliver incrementally
+- Being blocked by a pending project decision is a part of life, but you can often get a head start building what you think you'll need once planning is done.
+- If you accidentally make something useful that you don't need, put it in the toolbox! You never know when it might come up.
 
-### Resume driven development
-- Engineers are going to implement solutions in search of problems out of ambition and curiosity anyway; it can be more effective to just assign tickets for pet projects that may go nowhere rather than bloating your code base when someone hunting a promotion turns your kubectl manifest into the next Uber.
+### 💰 Channel ambition productively
+- Engineers will [naturally gravitate toward novel technology](https://ieeexplore.ieee.org/document/9402191). Instead of setting that valuable engergy aside as professional development, redirect it toward intentional spikes and low-stakes exploratory tickets rather than letting it quietly inflate your production codebase.
 
-### Zoom call multitasking
-- If you're able to get away with not paying attention, you probably don't need to be there. Just decline the invite and keep working.
+### 🤹 Question your own presence in meetings
+- "Sorry, I was multitasking, can you repeat the question?"
+- If a meeting doesn't require your engagement, it probably doesn't require your attendance.
+- I'm actually kind of surprised how often one can get away with declining meetings.
 
-### When everything is a P0, nothing is
-- We all feel personally attacked at this one
+### 🚨 When everything is a P0, nothing is
+- Meaningful prioritization requires the courage to say some things can wait.
+- Sometimes another team's P0 is your P1, which is unfortunate because you're blocking them. Sometimes advocating for another team is best for the greater good. But sometimes it isn't.

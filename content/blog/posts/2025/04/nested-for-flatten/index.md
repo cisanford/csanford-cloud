@@ -1,14 +1,17 @@
 ---
-date: '2025-03-23'
+date: '2025-04-21'
 draft: false
-series: ["HCL Nested Fors"]
-series_order: 1
-slug: nested-for
-summary: Let's break down how 'for' actually works in Terraform.
+slug: nested-for-flatten
 tags: ["terraform", "data structures", "iac"]
-title: 'Part 1: Nested `for` statements and you'
-weight: 1
+title: 'Nested `for` and `flatten` in Terraform'
+summary: A practical breakdown of `for` expressions and the `flatten` function — the two tools you need for dynamic resource creation in Terraform.
+featureimage: feature-thumb.gif
+aliases:
+  - /blog/series/flattening/nested-for/
+  - /blog/series/flattening/flatten/
 ---
+
+## Understanding `for`
 
 Using `for` to handle dynamic collections is a critical tool for any Terraform developer's arsenal, and handling **nested** `for` collections is a technique that's as powerful as it is flashy.
 Unfortunately, Terraform's use of `for` is notoriously counterintuitive:
@@ -68,14 +71,14 @@ We want to keep this distinction in mind when working with the `for` keyword, as
 
 > *The sinister nature of sub-objects becomes apparent when reviewing the state of module-heavy configurations, where resource identifiers get very long - e.g. `module.vpc[0].module.default_security_group[0].aws_vpc_security_group_egress_rule.egress_rule[0].id`.*
 
-## Understanding `for`
+## Using `for`
 
 Terraform uses the keyword `for` in multiple contexts.
 Its most popular usage is the `for_each` meta-argument, which you might know as an alternative to `count` or as part of a `dynamic` block.
 This usage, where we transform collections using `for`, should not be confused with `for_each`; despite their similar name, they are *very* distant relatives.
 
 In conventional programming, `for` defines loops that iteratively perform tasks.
-HCL doesn't perform actions or tasks directly. Instead, for is like a [template directive](https://developer.hashicorp.com/terraform/language/expressions/strings#directives) used to transform and interpolate strings or collections."
+HCL doesn't perform actions or tasks directly. Instead, `for` is like a [template directive](https://developer.hashicorp.com/terraform/language/expressions/strings#directives) used to transform and interpolate strings or collections.
 
 `for` appears **within** collections. A `[for statement in square braces]` is a one-dimensional collection and a `{for statement in curly braces}` is a two-dimensional collection:
 
@@ -129,7 +132,7 @@ Outputting:
 ]
 ```
 
-## Part 2: Nested `for`
+## Nested `for`
 
 Nested `for` statements help consolidate complex data structures, such as lists of objects containing lists.
 
@@ -176,12 +179,100 @@ The output is a structured, nested tuple.
 
 We still have a reasonably complicated data set (nested collections), but it's *much* tidier than where we started (nested objects). We've transformed elements from multiple scopes, and now have entries for each of the most specific entries in the manifest.
 
-Using nested for expressions, we’ve transformed a complex, multi-layered YAML input into a structured, manageable dataset. This (surprisingly!) flexible method allows you to modularize your code, simplify input validation, and ensure consistency across configurations.
+---
 
-The next logical step is **consolidation**: using Terraform's built-in `flatten` function to convert these nested structures into a flat, predictable collection that we can iterate through using meta-arguments like `for_each`.
+## `flatten` 101
 
-`flatten`, famously, expects a `list` of `lists`. Because everything in our output is the same type (down to the object schema!), our `tuples` are eligible for promotion to `lists`, and we can consolidate them.
+Now that we have nested tuples, let's put them to work. Before we do, here's a quick refresher on what `flatten` actually does:
 
-We'll walk through how (and why) I use flatten, and how it can further simplify your workloads, in the next post.
+{{< lead >}}
+`flatten` *takes a list and replaces any elements that are lists with a flattened sequence of the list contents.*
+{{< /lead >}}
+
+{{< button href="https://developer.hashicorp.com/terraform/language/functions/flatten" target="_blank"  >}}
+Hashicorp Documentation
+{{< /button >}}
+
+Terraform developers often need to receive nested input to dynamically create zero-to-many resources (or sub-resources), *specifically* by using either
+
+- the `for_each` meta-argument, or
+- a `dynamic` block.
+
+Because iterators in Terraform are not logical operators, they aren't great at handling "multi-dimensional" nested input directly. For instance, if you need multiple subnets, you should provide a single flat list rather than separate nested lists for public and private subnets:
+
+```hcl
+locals {
+  # Good
+  subnets = [
+    { name = string, cidr = string },
+    { name = string, cidr = string },
+    { name = string, cidr = string }
+  ]
+
+  # Not good
+  bad_subnets = [
+    [{ name = string, cidr = string }, { name = string, cidr = string }],
+    [{ name = string, cidr = string }]
+  ]
+}
+```
+
+{{< alert >}}
+When using the `for_each` [meta-argument](https://developer.hashicorp.com/terraform/language/meta-arguments/for_each), each instance of a [resource | data source | module | etc] requires a **unique** 'key' in `string` format. `for_each` collections behave like hash tables, so that key acts as the item's **index**. 
+- This is why `for_each` requires either a list of known-before-apply strings, or a list of key-value objects (i.e. `key => value` expressions.)
+
+When composing lists of "two-dimensional" objects, ensure each object includes a unique `string` attribute suitable for identifying resources easily in the Terraform state file. Usually, the object's `name` attribute suffices, but this might differ based on your use case.
+{{< /alert >}}
+
+### TL;DR
+
+`flatten` can be applied in several contexts, but it's most commonly (by a lot) used to *normalize nested lists* for use with `for_each`.
+
+With this in mind, let's go back to our fruit salad.
 
 ---
+
+## Fruit Kebabs
+
+Suppose we want to make multiple resources (in this case, four of them) called `fruit_chunk`. The `fruit_chunk` resource (from our fictitious `tastycorp/fruit` provider) has the following arguments:
+
+| Name        | Description                               | Type   | Default              |
+|-------------|-------------------------------------------|--------|----------------------|
+| name        | Common name of the fruit                  | string | *required*           |
+| color       | Rough color of the fruit's exterior       | string | *required*           |
+| flavor      | Primary flavor profile of the fruit       | string | *required*           |
+| large       | Whether the fruit is big                  | bool   | *required*           |
+| description | Friendly sentence talking about the fruit | string | "Hey, look at that!" |
+
+To create zero-to-many fruit chunks for a kebab, we can use a `for_each` block:
+
+{{< codeimporter url="https://raw.githubusercontent.com/cisanford/csanford-cloud/main/content/blog/series/flattening/assets/fruit-kebab.hcl" type="hcl" startLine="5" endLine="16" >}}
+
+Eagle-eyed observers will note that this for_each argument requires a **list of objects**.
+
+I wish I could say this grand reveal is complicated and flashy, but it's not:
+
+{{< codeimporter url="https://raw.githubusercontent.com/cisanford/csanford-cloud/main/content/blog/series/flattening/assets/fruit-kebab.hcl" type="hcl" startLine="1" endLine="3" >}}
+
+That simple flatten statement will convert a nested list structure (`[[obj, obj], [obj, obj]]`) to a flat one (`[obj, obj, obj, obj]`) in one go. The **flattened** version is suitable for a `for_each` meta-argument.
+
+---
+
+### A last note on for_each
+
+Let's review the for_each structure:
+`for_each = { for fruit in local.fruits: fruit.name => fruit }`
+- The opening `{` indicates a map of key-value pairs.
+- `for fruit in local.fruits` defines the  iterator. This iterator is scoped to the expression: it is mentioned after the `:` in the for statement, and might not not be consumed in the resource at all.
+- `fruit.name => fruit` specifies that:
+  - The **key** is the `name` **attribute** of each `fruit` (an object within the collection `local.fruits`)
+  - The **value** (accessible as `each.value` in the resource) is the **entire fruit object**, including the `name`.
+
+---
+
+Nested `for` expressions transform complex, multi-layered input into something you can actually iterate over. `flatten` then collapses any leftover nesting into the flat list that `for_each` expects. Once it clicks once, you'll use this pattern everywhere.
+
+### Documentation
+
+- [for](https://developer.hashicorp.com/terraform/language/expressions/for)
+- [flatten](https://developer.hashicorp.com/terraform/language/functions/flatten)
